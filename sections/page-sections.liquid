@@ -1,0 +1,134 @@
+<div class="wrapper container-fluid">
+    <div class="row">
+        <div class="col-xs-12">
+            {%-  for block in section.blocks -%}
+                {%- case block.type -%}
+                {%- when 'heading' -%}
+                    {%- include 'page-sections.heading', block: block -%}
+                {%- when 'image' -%}
+                    {%- include 'page-sections.image', block: block -%}
+                {%- when 'text' -%}
+                    {%- include 'page-sections.text', block: block -%}
+                {%- when 'text-image' -%}
+                    {%- include 'page-sections.text-image', block: block -%}
+                {%- endcase -%}
+            {%- endfor -%}
+        </div>
+    </div>
+</div>
+
+{% schema %}
+    {
+      "name": "Page Sections",
+      "blocks": [
+        {
+          "type": "heading",
+          "name": "Heading",
+          "settings": [
+            {
+              "type": "text",
+              "id": "heading",
+              "label": "Heading"
+            },
+            {
+              "type": "select",
+              "id": "text-align",
+              "label": "Text Align",
+              "options": [
+                { "value": "left", "label": "Left" },
+                { "value": "center", "label": "Center" },
+                { "value": "right", "label": "Right" }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "image",
+          "name": "Image",
+          "settings": [
+            {
+              "type": "image_picker",
+              "id": "image",
+              "label": "Image"
+            },
+            {
+              "type": "text",
+              "id": "alt",
+              "label": "Alt Text"
+            },
+            {
+              "type": "select",
+              "id": "image-align",
+              "label": "Image Alignment",
+              "options": [
+                { "value": "left", "label": "Left" },
+                { "value": "center", "label": "Center" },
+                { "value": "right", "label": "Right" }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "name": "Text",
+          "settings": [
+            {
+              "type": "richtext",
+              "id": "text",
+              "label": "Text"
+            },
+            {
+              "type": "select",
+              "id": "text-align",
+              "label": "Text Align",
+              "options": [
+                { "value": "left", "label": "Left" },
+                { "value": "center", "label": "Center" },
+                { "value": "right", "label": "Right" }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "text-image",
+          "name": "Text and Image",
+          "settings": [
+            {
+              "type": "richtext",
+              "id": "text",
+              "label": "Text"
+            },
+            {
+              "type": "select",
+              "id": "text-align",
+              "label": "Text Align",
+              "options": [
+                { "value": "left", "label": "Left" },
+                { "value": "center", "label": "Center" },
+                { "value": "right", "label": "Right" }
+              ]
+            },
+            {
+              "type": "image_picker",
+              "id": "image",
+              "label": "Image"
+            },
+            {
+              "type": "text",
+              "id": "alt",
+              "label": "Alt Text"
+            },
+            {
+              "type": "select",
+              "id": "image-align",
+              "label": "Image Alignment",
+              "options": [
+                { "value": "left", "label": "Left" },
+                { "value": "right", "label": "Right" }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+{% endschema %}

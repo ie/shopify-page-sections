@@ -1,0 +1,4 @@
+<div style="display: flex; {%- if block.settings.image-align == 'right' -%}flex-direction: row-reverse;{%- endif -%}">
+    <div style="flex: 0 0 50%;">{{ block.settings.image | img_url: 'master' | img_tag: block.settings.alt }}</div>
+    <div style="flex: 0 0 50%;"><p style="text-align: {{ block.settings.text-align }}">{{ block.settings.text }}</p></div>
+</div>
